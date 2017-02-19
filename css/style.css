@@ -1,0 +1,46 @@
+body {
+	background-color: rgb(236,238,239);
+	font-size: 20px;
+}
+
+.semester_container {
+	margin-bottom: 1em;
+}
+
+.main_container {
+	margin: 10px;
+}
+
+input{
+	display:inline-block;
+	text-align:center;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.footer {
+	background-color: lightgrey;
+	border-radius: 2px
+}
+
+.vertical-table {
+	width:100%;
+}
+
+.target_ects:hover{
+	cursor: pointer;
+}
+
+.white-text {
+	color: white;
+}
+
+.hidden {
+	display: none;
+}
+
+.toggleIconDiv{
+	cursor: pointer;
+}

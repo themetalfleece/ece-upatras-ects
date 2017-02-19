@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>ECTS υπολογισμός</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+	<!--
+		ti -> teachings inside
+		to -> teachings outside
+		li -> labs inside
+		lo -> labs outside
+	-->
+	<div class="main_container">
+
+		<div class="container card mb-2">
+
+			<div class="card-block">
+				Η εφαρμογή είναι ακόμα σε περίοδο δοκιμής, αν και θα πρέπει να λειτουργεί σωστά.
+				<br>
+				<h3 class="card-title text-center"> Οδηγίες </h3>
+				<div style="display:none;" id="moreInstructionsDiv" class="card-text">
+					<ol>
+						<li>
+							Εισάγετε σε για κάθε εξάμηνο τα απαραίτητα στοιχεία.
+						</li>
+						<li>
+							Όταν τα ECTS σας φτάσουν σε μία απο τις 3 αποδεκτές τιμές, αυτή η τιμή θα γίνει πράσινη. Επίσης, η τιμή των απαραίτητων ECTS σε ένα συσχετιζόμενο εξάμηνο θα γίνει κίτρινη. Για παράδειγμα, αν έχετε 26 ECTS στο 7ο εξάμηνο (θα γίνει πράσινο), πρέπει να συμπληρώσετε τη φόρμα ώστε να έχετε 22 ECTS στο 8ο εξάμηνο (θα γίνει κίτρινο).
+						</li>
+						<li>
+							Αν κάνετε κλικ πάνω σε ένα button με ECTS, βλέπετε ποιούς συνδυασμούς διδασκαλιών/εργαστηρίων μπορείτε να κάνετε ώστε να τα συμπληρώσετε.
+						</li>
+						<li>
+							Στο κάτω μέρος της σελίδας μπορείτε να δείτε πόσες διδασκαλίες και εργαστήρια, εντός και εκτός τομέα έχετε επιλέξει, συγκριτικά με τον ελάχιστο αριθμό που πρέπει να συμπληρωθούνε. Για παράδειγμα, αν έχετε 5 Διδασκαλίες Εκτός Τομέα, θα γράψει 5/4 και το κριτήριο θα ικανοποιήθεί.
+							<ul>
+								<li>
+									Επιπλέον, η μπάρα του αντίστοιχου χρώματος θα αυξάνεται. Όταν φτάσει ή περάσει την απαραίτητη τιμή, θα γίνει striped.
+								</li>
+							</ul>
+						</li>
+						<li>
+							Αν ικανοποιηθούν όλα τα κριτήρια, το κάτω μέρος της σελίδας θα γράψει "Έγκυρη φόρμα" σε πράσινο background.
+						</li>
+					</ol>
+				</div>
+				<div class="text-center toggleIconDiv" id="moreInstructionsIconDiv">
+					<i class="fa fa-chevron-down fa-2x" aria-hidden="true"></i>
+				</div>
+				<div class="text-center toggleIconDiv hidden" id="lessInstructionsIconDiv">
+					<i class="fa fa-chevron-up fa-2x" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="container card semester_container text-center">
+					<div class="card-block">
+						<h4 class="card-title">7o Εξάμηνο</h4>
+						<p class="card-text">
+							<label for="ti_7">Διδασκαλίες Εντός Τομέα</label>
+							<input type="number" value=0 min=0 name="ti_7" id="ti_7" class="form-control lessons_input">
+							<label for="to_7">Διδασκαλίες Εκτός Τομέα</label>
+							<input type="number" value=0 min=0 name="to_7" id="to_7" class="form-control lessons_input">
+							<label for="li_7">Εργαστήρια Εντός Τομέα</label>
+							<input type="number" value=0 min=0 name="li_7" id="li_7" class="form-control lessons_input">
+							<label for="lo_7">Εργαστήρια Εκτός Τομέα</label>
+							<input type="number" value=0 min=0 name="lo_7" id="lo_7" class="form-control lessons_input">
+						</p>
+						<div>
+							<p>
+								<b>ECTS:</b> <span id="ects_7">0</span>
+							</p>
+							<button id="target_ects_7_1" data-semester=7 data-ects=22 class="btn btn-lg btn-secondary target_ects" data-toggle="popover"  data-trigger="focus" data-placement="bottom" title="Ολοκλήρωση εξαμήνου" data-content="">22</button>
+							<button id="target_ects_7_2" data-semester=7 data-ects=24 class="btn btn-lg btn-secondary target_ects" data-toggle="popover"  data-trigger="focus" data-placement="bottom" title="Ολοκλήρωση εξαμήνου" data-content="">24</button>
+							<button id="target_ects_7_3" data-semester=7 data-ects=26 class="btn btn-lg btn-secondary target_ects" data-toggle="popover"  data-trigger="focus" data-placement="bottom" title="Ολοκλήρωση εξαμήνου" data-content="">26</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="container card semester_container text-center">
+					<div class="card-block">
+						<h4 class="card-title">8o Εξάμηνο</h4>
+						<p class="card-text">
+							<label for="ti_8">Διδασκαλίες Εντός Τομέα</label>
+							<input type="number" value=0 min=0 name="ti_8" id="ti_8" class="form-control lessons_input">
+							<label for="to_8">Διδασκαλίες Εκτός Τομέα</label>
+							<input type="number" value=0 min=0 name="to_8" id="to_8" class="form-control lessons_input">
+							<label for="li_8">Εργαστήρια Εντός Τομέα</label>
+							<input type="number" value=0 min=0 name="li_8" id="li_8" class="form-control lessons_input">
+							<label for="lo_8">Εργαστήρια Εκτός Τομέα</label>
+							<input type="number" value=0 min=0 name="lo_8" id="lo_8" class="form-control lessons_input">
+						</p>
+						<div>
+							<p>
+								<b>ECTS:</b> <span id="ects_8">0</span>
+							</p>
+							<button id="target_ects_8_1" data-semester=8 data-ects=22 class="btn btn-lg btn-secondary target_ects" data-toggle="popover"  data-trigger="focus" data-placement="bottom" title="Ολοκλήρωση εξαμήνου" data-content="">22</button>
+							<button id="target_ects_8_2" data-semester=8 data-ects=24 class="btn btn-lg btn-secondary target_ects" data-toggle="popover"  data-trigger="focus" data-placement="bottom" title="Ολοκλήρωση εξαμήνου" data-content="">24</button>
+							<button id="target_ects_8_3" data-semester=8 data-ects=26 class="btn btn-lg btn-secondary target_ects" data-toggle="popover"  data-trigger="focus" data-placement="bottom" title="Ολοκλήρωση εξαμήνου" data-content="">26</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="container card semester_container text-center">
+					<div class="card-block">
+						<h4 class="card-title">9o Εξάμηνο</h4>
+						<p class="card-text">
+							<label for="ti_9">Διδασκαλίες Εντός Τομέα</label>
+							<input type="number" value=0 min=0 name="ti_9" id="ti_9" class="form-control lessons_input">
+							<label for="to_9">Διδασκαλίες Εκτός Τομέα</label>
+							<input type="number" value=0 min=0 name="to_9" id="to_9" class="form-control lessons_input">
+							<label for="li_9">Εργαστήρια Εντός Τομέα</label>
+							<input type="number" value=0 min=0 name="li_9" id="li_9" class="form-control lessons_input">
+							<label for="lo_9">Εργαστήρια Εκτός Τομέα</label>
+							<input type="number" value=0 min=0 name="lo_9" id="lo_9" class="form-control lessons_input">
+						</p>
+						<div>
+							<p>
+								<b>ECTS:</b> <span id="ects_9">0</span>
+							</p>
+							<button id="target_ects_9_1" data-semester=9 data-ects=14 class="btn btn-lg btn-secondary target_ects" data-toggle="popover"  data-trigger="focus" data-placement="bottom" title="Ολοκλήρωση εξαμήνου" data-content="">14</button>
+							<button id="target_ects_9_2" data-semester=9 data-ects=16 class="btn btn-lg btn-secondary target_ects" data-toggle="popover"  data-trigger="focus" data-placement="bottom" title="Ολοκλήρωση εξαμήνου" data-content="">16</button>
+							<button id="target_ects_9_3" data-semester=9 data-ects=18 class="btn btn-lg btn-secondary target_ects" data-toggle="popover"  data-trigger="focus" data-placement="bottom" title="Ολοκλήρωση εξαμήνου" data-content="">18</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="container card semester_container text-center">
+					<div class="card-block">
+						<h4 class="card-title">10o Εξάμηνο</h4>
+						<p class="card-text">
+							<label for="ti_10">Διδασκαλίες Εντός Τομέα</label>
+							<input type="number" value=0 min=0 name="ti_10" id="ti_10" class="form-control lessons_input">
+							<label for="to_10">Διδασκαλίες Εκτός Τομέα</label>
+							<input type="number" value=0 min=0 name="to_10" id="to_10" class="form-control lessons_input">
+							<label for="li_10">Εργαστήρια Εντός Τομέα</label>
+							<input type="number" value=0 min=0 name="li_10" id="li_10" class="form-control lessons_input">
+							<label for="lo_10">Εργαστήρια Εκτός Τομέα</label>
+							<input type="number" value=0 min=0 name="lo_10" id="lo_10" class="form-control lessons_input">
+						</p>
+						<div>
+							<p>
+								<b>ECTS:</b> <span id="ects_10">0</span>
+							</p>
+
+							<button id="target_ects_10_1" data-semester=10 data-ects=14 class="btn btn-lg btn-secondary target_ects" data-toggle="popover"  data-trigger="focus" data-placement="bottom" title="Ολοκλήρωση εξαμήνου" data-content="">14</button>
+							<button id="target_ects_10_2" data-semester=10 data-ects=16 class="btn btn-lg btn-secondary target_ects" data-toggle="popover"  data-trigger="focus" data-placement="bottom" title="Ολοκλήρωση εξαμήνου" data-content="">16</button>
+							<button id="target_ects_10_3" data-semester=10 data-ects=18 class="btn btn-lg btn-secondary target_ects" data-toggle="popover"  data-trigger="focus" data-placement="bottom" title="Ολοκλήρωση εξαμήνου" data-content="">18</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="row">
+			<div class="col-lg-6 offset-lg-3">
+				<div class="card">
+					<div class="card-block">
+						<p class="card-text">
+							<div class="table-responsive">
+								<table class="vertical-table table-striped">
+									<tr class="bg-primary white-text">
+										<th>Διδασκαλίες Εντός Τομέα:</th>
+										<td><span id="t_ti">0</span>/<span id="t_ti_min"></span></td>
+									</tr>
+									<tr class="bg-success white-text">
+										<th>Διδασκαλίες Εκτός Τομέα:</th>
+										<td><span id="t_to">0</span>/<span id="t_to_min"></span></td>
+									</tr>
+									<tr class="bg-info white-text">
+										<th>Εργαστήρια Εντός Τομέα:</th>
+										<td><span id="t_li">0</span>/<span id="t_li_min"></span></td>
+									</tr>
+									<tr class="bg-warning white-text">
+										<th>Εργαστήρια Εκτός Τομέα:</th>
+										<td><span id="t_lo">0</span>/<span id="t_lo_min"></span></td>
+									</tr>
+								</table>
+							</div>		
+							<div class="progress my-2">
+								<div class="progress-bar" id="pb-ti" role="progressbar" style="width: 1%" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100"></div>
+								<div class="progress-bar bg-success" id="pb-to" role="progressbar" style="width: 1%" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100"></div>
+								<div class="progress-bar bg-info" id="pb-li" role="progressbar" style="width: 1%" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100"></div>
+								<div class="progress-bar bg-warning" id="pb-lo" role="progressbar" style="width: 1%" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>	
+
+							<div class="invalid_form bg-danger text-center">
+								Μη έγκυρη φόρμα
+							</div>
+
+							<div class="valid_form bg-success text-center hidden">
+								Έγκυρη φόρμα
+							</div>			
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="col-xs-12 footer mt-3 text-center">
+			Source
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<script src="https://use.fontawesome.com/621fd522c2.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
