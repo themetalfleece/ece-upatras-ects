@@ -32,7 +32,10 @@ $(document).ready(function(){
 	var semester_success = {};
 
 	$('.lessons_input').on('input', function(){
+		calculateAllValues();
+	});
 
+	function calculateAllValues(){
 		// total ti etc
 		var t_ti = 0;
 		var t_to = 0;
@@ -107,7 +110,7 @@ $(document).ready(function(){
 			$('.invalid_form').removeClass('hidden');
 		}
 
-	});
+	}
 
 	function changeProgressBars(selector, value, min_value){
 		var progress_value = (value/min_value <= 1 ? value/min_value : 1) * 25;
@@ -236,5 +239,7 @@ $(document).ready(function(){
 			// document.getElementById("lessons").scrollIntoView({behavior: "smooth"});
 		});
 	});
+
+	calculateAllValues();
 
 });

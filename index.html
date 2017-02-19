@@ -28,7 +28,10 @@
 				<div style="display:none;" id="moreInstructionsDiv" class="card-text">
 					<ol>
 						<li>
-							Εισάγετε σε για κάθε εξάμηνο τα απαραίτητα στοιχεία.
+							Εισάγετε για κάθε εξάμηνο τα απαραίτητα στοιχεία.
+						</li>
+						<li>
+							Κάποια πεδία έχουν ελάχιστη τιμή βάση του κανονισμού. Δηλαδή, στα εξάμηνα 7 και 8 είναι υποχρεωτική η δήλωση 2 μαθημάτων εντός τομέα ενώ στα εξάμηνα 9 και 10 είναι υποχρεωτική η δήλωση 1 μαθήματος εντός τομέα.
 						</li>
 						<li>
 							Όταν τα ECTS σας φτάσουν σε μία απο τις 3 αποδεκτές τιμές, αυτή η τιμή θα γίνει πράσινη. Επίσης, η τιμή των απαραίτητων ECTS σε ένα συσχετιζόμενο εξάμηνο θα γίνει κίτρινη. Για παράδειγμα, αν έχετε 26 ECTS στο 7ο εξάμηνο (θα γίνει πράσινο), πρέπει να συμπληρώσετε τη φόρμα ώστε να έχετε 22 ECTS στο 8ο εξάμηνο (θα γίνει κίτρινο).
@@ -46,6 +49,9 @@
 						</li>
 						<li>
 							Αν ικανοποιηθούν όλα τα κριτήρια, το κάτω μέρος της σελίδας θα γράψει "Έγκυρη φόρμα" σε πράσινο background.
+						</li>
+						<li>
+							Σημείωση: Δε περιλαμβάνονται περιορισμοί για μαθήματα ομάδας Ε0.
 						</li>
 					</ol>
 				</div>
@@ -66,7 +72,7 @@
 						<h4 class="card-title">7o Εξάμηνο</h4>
 						<p class="card-text">
 							<label for="ti_7">Διδασκαλίες Εντός Τομέα</label>
-							<input type="number" value=0 min=0 name="ti_7" id="ti_7" class="form-control lessons_input">
+							<input type="number" value=2 min=2 name="ti_7" id="ti_7" class="form-control lessons_input">
 							<label for="to_7">Διδασκαλίες Εκτός Τομέα</label>
 							<input type="number" value=0 min=0 name="to_7" id="to_7" class="form-control lessons_input">
 							<label for="li_7">Εργαστήρια Εντός Τομέα</label>
@@ -92,7 +98,7 @@
 						<h4 class="card-title">8o Εξάμηνο</h4>
 						<p class="card-text">
 							<label for="ti_8">Διδασκαλίες Εντός Τομέα</label>
-							<input type="number" value=0 min=0 name="ti_8" id="ti_8" class="form-control lessons_input">
+							<input type="number" value=2 min=2 name="ti_8" id="ti_8" class="form-control lessons_input">
 							<label for="to_8">Διδασκαλίες Εκτός Τομέα</label>
 							<input type="number" value=0 min=0 name="to_8" id="to_8" class="form-control lessons_input">
 							<label for="li_8">Εργαστήρια Εντός Τομέα</label>
@@ -118,7 +124,7 @@
 						<h4 class="card-title">9o Εξάμηνο</h4>
 						<p class="card-text">
 							<label for="ti_9">Διδασκαλίες Εντός Τομέα</label>
-							<input type="number" value=0 min=0 name="ti_9" id="ti_9" class="form-control lessons_input">
+							<input type="number" value=1 min=1 name="ti_9" id="ti_9" class="form-control lessons_input">
 							<label for="to_9">Διδασκαλίες Εκτός Τομέα</label>
 							<input type="number" value=0 min=0 name="to_9" id="to_9" class="form-control lessons_input">
 							<label for="li_9">Εργαστήρια Εντός Τομέα</label>
@@ -144,7 +150,7 @@
 						<h4 class="card-title">10o Εξάμηνο</h4>
 						<p class="card-text">
 							<label for="ti_10">Διδασκαλίες Εντός Τομέα</label>
-							<input type="number" value=0 min=0 name="ti_10" id="ti_10" class="form-control lessons_input">
+							<input type="number" value=1 min=1 name="ti_10" id="ti_10" class="form-control lessons_input">
 							<label for="to_10">Διδασκαλίες Εκτός Τομέα</label>
 							<input type="number" value=0 min=0 name="to_10" id="to_10" class="form-control lessons_input">
 							<label for="li_10">Εργαστήρια Εντός Τομέα</label>
